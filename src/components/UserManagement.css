@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=ProximaNova:wght@400;600;700&display=swap');
+@import '../styles/variables.css';
+
+.user-management {
+  width: 100%;
+  padding: 40px 20px;
+  background: var(--primary-white);
+  min-height: 100vh;
+  font-family: 'ProximaNova', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.user-management h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary-black);
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.subtitle {
+  color: #93959f;
+  font-size: 16px;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+.user-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 16px 12px 8px;
+  border: 1px solid #d4d5d9;
+  border-radius: 0;
+  font-size: 17px;
+  background: var(--primary-white);
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-orange);
+  border-width: 2px;
+}
+
+.form-group label {
+  position: absolute;
+  left: 12px;
+  top: 4px;
+  font-size: 12px;
+  color: #93959f;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.image-upload {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 0;
+}
+
+.image-preview {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #f0f0f5;
+}
+
+.upload-btn {
+  background: var(--orange-light);
+  color: var(--primary-orange);
+  border: 1px solid var(--primary-orange);
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.submit-btn {
+  background: var(--primary-orange);
+  color: var(--primary-white);
+  border: none;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.submit-btn:hover {
+  background: #e73c00;
+}
+
+.hidden-input {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .user-management {
+    padding: 20px 16px;
+  }
+}
