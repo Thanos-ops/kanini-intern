@@ -1,0 +1,59 @@
+### Test Address API Endpoints
+@baseUrl = https://localhost:7062
+@token = YOUR_JWT_TOKEN_HERE
+
+### 1. Login to get token (replace with actual user credentials)
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "password": "password123"
+}
+
+### 2. Get all addresses
+GET {{baseUrl}}/api/user/address
+Authorization: Bearer {{token}}
+
+### 3. Add new address - CORRECT FORMAT
+POST {{baseUrl}}/api/user/address
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "type": "Home",
+  "address": "123 Main Street, Apartment 4B",
+  "city": "New York",
+  "pincode": "123456",
+  "isDefault": true
+}
+
+### 4. Add another address
+POST {{baseUrl}}/api/user/address
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "type": "Work",
+  "address": "456 Business Ave, Suite 200",
+  "city": "New York", 
+  "pincode": "654321",
+  "isDefault": false
+}
+
+### 5. Update address (replace {id} with actual address ID)
+PUT {{baseUrl}}/api/user/address/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "type": "Home",
+  "address": "789 Updated Street, Unit 5C",
+  "city": "Brooklyn",
+  "pincode": "111222",
+  "isDefault": true
+}
+
+### 6. Delete address (replace {id} with actual address ID)
+DELETE {{baseUrl}}/api/user/address/1
+Authorization: Bearer {{token}}
