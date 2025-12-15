@@ -1,0 +1,118 @@
+### Backend Endpoint Tests
+@baseUrl = https://localhost:7224
+@token = YOUR_JWT_TOKEN_HERE
+
+### 1. Health Check
+GET {{baseUrl}}/
+Accept: application/json
+
+### 2. Login (Get Token First)
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "password": "password123"
+}
+
+### 3. User Profile - Get
+GET {{baseUrl}}/api/user/profile
+Authorization: Bearer {{token}}
+
+### 4. User Profile - Update
+PUT {{baseUrl}}/api/user/profile
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Test User",
+  "email": "test@example.com",
+  "mobile": "1234567890"
+}
+
+### 5. Change Password
+PUT {{baseUrl}}/api/user/change-password
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "currentPassword": "password123",
+  "newPassword": "newpassword123"
+}
+
+### 6. Get Addresses
+GET {{baseUrl}}/api/user/address
+Authorization: Bearer {{token}}
+
+### 7. Add Address
+POST {{baseUrl}}/api/user/address
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "type": "Home",
+  "address": "123 Test Street, Apt 4B",
+  "city": "Test City",
+  "pincode": "123456",
+  "isDefault": true
+}
+
+### 8. Update Address (replace {id} with actual ID)
+PUT {{baseUrl}}/api/user/address/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "type": "Work",
+  "address": "456 Business Ave",
+  "city": "Business City",
+  "pincode": "654321",
+  "isDefault": false
+}
+
+### 9. Delete Address (replace {id} with actual ID)
+DELETE {{baseUrl}}/api/user/address/1
+Authorization: Bearer {{token}}
+
+### 10. Get Orders
+GET {{baseUrl}}/api/user/order?page=1&pageSize=10
+Authorization: Bearer {{token}}
+
+### 11. Get Specific Order (replace {id} with actual ID)
+GET {{baseUrl}}/api/user/order/1
+Authorization: Bearer {{token}}
+
+### 12. Get Favorites
+GET {{baseUrl}}/api/user/favorite
+Authorization: Bearer {{token}}
+
+### 13. Add Favorite
+POST {{baseUrl}}/api/user/favorite
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "restaurantId": 1,
+  "restaurantName": "Test Restaurant"
+}
+
+### 14. Remove Favorite (replace {restaurantId} with actual ID)
+DELETE {{baseUrl}}/api/user/favorite/1
+Authorization: Bearer {{token}}
+
+### 15. Get Settings
+GET {{baseUrl}}/api/user/settings
+Authorization: Bearer {{token}}
+
+### 16. Update Settings
+PUT {{baseUrl}}/api/user/settings
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "emailNotifications": true,
+  "pushNotifications": false,
+  "smsNotifications": true,
+  "language": "en",
+  "theme": "dark"
+}

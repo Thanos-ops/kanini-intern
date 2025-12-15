@@ -1,0 +1,6 @@
+@Foodapi_HostAddress = http://localhost:5062
+
+GET {{Foodapi_HostAddress}}
+Accept: application/json
+
+###
